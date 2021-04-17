@@ -1,7 +1,8 @@
 <template>
   <nav class="flex bg-gray-800 text-yellow-500 py-5 px-1 mb-5 rounded">
-    <ul class="flex-1"><NuxtLink to="#">Jam types</NuxtLink></ul>
-    <ul class="flex-1"><NuxtLink to="#">About</NuxtLink></ul>
+    <ul class="flex-1"><NuxtLink to="/">Home</NuxtLink></ul>
+    <ul class="flex-1"><NuxtLink to="/list">Jam types</NuxtLink></ul>
+    <ul class="flex-1"><NuxtLink to="/about">About</NuxtLink></ul>
   </nav>
 </template>
 
