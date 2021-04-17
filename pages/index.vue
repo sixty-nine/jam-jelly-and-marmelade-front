@@ -1,80 +1,26 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        jjm
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+  <article>
+    <h1>Welcome to my Jam site</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies volutpat tincidunt. Cras convallis mi
+      magna, a commodo nunc pulvinar vitae. Nulla facilisi. Fusce facilisis semper tellus vitae tincidunt. Cras commodo
+      rhoncus ligula in faucibus. Sed dapibus magna in dapibus pellentesque. Aenean fringilla dui lectus, eget luctus
+      nulla hendrerit eu. Proin at lectus vel nisi aliquet tristique at non nibh. Integer tellus dolor, varius interdum
+      ex nec, mollis dictum nulla. In dignissim egestas ipsum, quis mollis diam facilisis ac. Orci varius natoque
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </p>
+    <p>
+      Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus faucibus justo
+      eget metus accumsan placerat. Quisque lorem elit, molestie id consequat eget, molestie nec ante. Vivamus vitae
+      nunc non magna bibendum efficitur. In tristique ligula eu magna maximus faucibus. Etiam fringilla facilisis magna,
+      ut pretium tellus vulputate vel. Proin rhoncus dolor sapien, eget pretium lorem elementum ut.
+    </p>
+  </article>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+    import Vue from 'vue'
 
-export default Vue.extend({})
+    export default Vue.extend({})
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
