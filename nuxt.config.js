@@ -40,6 +40,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+
+    '@nuxtjs/strapi',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -50,6 +52,10 @@ export default {
     manifest: {
       lang: 'en'
     }
+  },
+
+  strapi: {
+    url: 'http://localhost:1337'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -1,7 +1,11 @@
 <template>
   <article>
     <h1>Jam list</h1>
-    <p class="bg-yellow-200 text-red-500 p-2 font-bold text-center rounded-full">Coming soon</p>
+    <ul v-for="jam in jams" :key="jam.id" v-if="jams">
+       <li class="list-disc">
+         <nuxt-link :to="`/jams/${jam.id}`">{{ jam.title }}</nuxt-link>
+       </li>
+    </ul>
   </article>
 </template>
 
@@ -10,6 +14,16 @@
 
     export default Vue.extend({
         name: "JamListPage",
+        data: () => ({ jams: [] }),
+        mounted() {
+            this.fetchData();
+        },
+        methods: {
+            async fetchData() {
+                const jams = await this.$strapi.find('jams');
+                this.jams = jams;
+            },
+        },
     });
 </script>
 
