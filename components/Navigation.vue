@@ -3,6 +3,7 @@
     <ul class="flex-1"><NuxtLink to="/">Home</NuxtLink></ul>
     <ul class="flex-1"><NuxtLink to="/list">Jam types</NuxtLink></ul>
     <ul class="flex-1"><NuxtLink to="/about">About</NuxtLink></ul>
+    <ul class="flex-1"><NuxtLink to="/auth/login">Login/Logout</NuxtLink></ul>
   </nav>
 </template>
 
