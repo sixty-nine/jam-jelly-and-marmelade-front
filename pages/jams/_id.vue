@@ -10,24 +10,37 @@
     <div class="pt-5">
       <strong>Wiki URL</strong>: <a :href="jam.url">{{ jam.url }}</a>
     </div>
+    <div class="pt-5" v-if="loggedIn">
+      <span v-if="liked">You like it!</span>
+      <span v-else><a href="#" @click="like()">Click here to like it.</a></span>
+    </div>
   </article>
 </template>
 
 <script lang="ts">
     import Vue from 'vue';
     import { IJams } from "~/strapi";
+    import { mapGetters } from 'vuex';
+    import { LikesRepository } from "~/repository/likes";
 
     type ComponentData = {
         jam: IJams | null;
+        liked: boolean;
     };
 
     export default Vue.extend({
         name: "JamDetailPage",
-        data: (): ComponentData => ({ jam: null }),
-        mounted() {
-            this.fetchData();
+        data: (): ComponentData => ({
+            jam: null,
+            liked: false,
+        }),
+        async mounted() {
+            await this.fetchData();
         },
         computed: {
+            ...mapGetters({
+                loggedIn: 'auth/loggedIn',
+            }),
             imageUrl() {
                 if (!this.jam) {
                     return false;
@@ -38,8 +51,19 @@
         methods: {
             async fetchData() {
                 this.jam = await this.$strapi.findOne('jams', this.$route.params.id);
-                console.log(this.jam);
+
+                if (this.jam) {
+                    const repo = new LikesRepository(this.$supabase);
+                    this.liked = await repo.isLiked(this.jam.title);
+                }
             },
+            async like() {
+                if (this.jam) {
+                    const repo = new LikesRepository(this.$supabase);
+                    await repo.likeJam(this.jam.title);
+                    this.liked = true;
+                }
+            }
         }
     });
 </script>
