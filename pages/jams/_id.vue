@@ -35,7 +35,12 @@
             liked: false,
         }),
         async mounted() {
-            await this.fetchData();
+            this.jam = await this.$strapi.findOne('jams', this.$route.params.id);
+
+            if (this.jam) {
+                const repo = new LikesRepository(this.$supabase);
+                this.liked = await repo.isLiked(this.jam.title);
+            }
         },
         computed: {
             ...mapGetters({
@@ -49,14 +54,6 @@
             },
         },
         methods: {
-            async fetchData() {
-                this.jam = await this.$strapi.findOne('jams', this.$route.params.id);
-
-                if (this.jam) {
-                    const repo = new LikesRepository(this.$supabase);
-                    this.liked = await repo.isLiked(this.jam.title);
-                }
-            },
             async like() {
                 if (this.jam) {
                     const repo = new LikesRepository(this.$supabase);
