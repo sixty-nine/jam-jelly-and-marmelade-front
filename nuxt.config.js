@@ -56,8 +56,17 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
-    }
+      name: 'JJM - Confiture et marmelade',
+      short_name: 'JJM',
+      lang: 'en',
+      start_url: '/',
+      display: 'standalone',
+    },
+    meta: {
+      theme_color: '#4ca2ab',
+    },
+    // Caching service worker
+    // Push notifications with OneSignal
   },
 
   strapi: {
